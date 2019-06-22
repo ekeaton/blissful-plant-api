@@ -74,7 +74,7 @@ plantsRouter
         req.app.get('db'),
         req.params.plant_id
       )
-        .then((numRowsAffected) => {
+        .then(() => {
            res.status(204).end()
         })
         .catch(next)
