@@ -18,7 +18,7 @@ app.use(morgan(morganOption))
 app.use(cors())
 app.use(helmet())
 
-app.use('/api/plants/', plantsRouter)
+app.use('/api/plants', plantsRouter)
 
 
 app.get('/', (req, res) => {
