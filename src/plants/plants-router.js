@@ -25,8 +25,8 @@ plantsRouter
       .catch(next)
   })
   .post(jsonParser, (req, res, next) => {
-    const { name, num_days, water_date, note } = req.body
-    const newPlant = { name, num_days, water_date}
+    const { id, name, num_days, water_date, note } = req.body
+    const newPlant = { id, name, num_days, water_date}
 
     for (const [key, value] of Object.entries(newPlant)) 
        if (value == null) 
@@ -49,11 +49,11 @@ plantsRouter
   })
 
 plantsRouter
-  .route('/:plant_id')
+  .route('/:id')
   .all((req, res, next) => {
        PlantsService.getById(
         req.app.get('db'),
-        req.params.plant_id
+        req.params.id
      )
       .then(plant => {
         if (!plant) {
@@ -72,7 +72,7 @@ plantsRouter
   .delete((req, res, next) => {
     PlantsService.deletePlant(
         req.app.get('db'),
-        req.params.plant_id
+        req.params.id
       )
         .then(() => {
            res.status(204).end()
@@ -80,8 +80,8 @@ plantsRouter
         .catch(next)
    })
    .patch(jsonParser, (req, res, next) => {
-    const { name, num_days, note, water_date } = req.body
-    const plantToUpdate = { note, water_date, name, num_days }
+    const { id, name, num_days, note, water_date } = req.body
+    const plantToUpdate = { id, note, water_date, name, num_days }
 
     const numberOfValues = Object.values(plantToUpdate).filter(Boolean).length
     if (numberOfValues === 0)
@@ -93,7 +93,7 @@ plantsRouter
 
     PlantsService.updatePlant(
       req.app.get('db'),
-      req.params.plant_id,
+      req.params.id,
       plantToUpdate
     )
       .then(numRowsAffected => {
