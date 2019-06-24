@@ -23,7 +23,7 @@ const PlantsService = {
   
     deletePlant(knex, id) {
       return knex('plants')
-        .where({ id })
+        .where( 'id', id )
         .delete()
     },
   
