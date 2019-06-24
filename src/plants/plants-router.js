@@ -34,6 +34,7 @@ plantsRouter
             error: { message: `Missing '${key}' in request body` }
           })
     newPlant.note = note;
+    newPlant.id = id;
 
     PlantsService.insertPlant(
       req.app.get('db'),
