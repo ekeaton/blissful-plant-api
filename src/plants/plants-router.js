@@ -25,8 +25,8 @@ plantsRouter
       .catch(next)
   })
   .post(jsonParser, (req, res, next) => {
-    const { id, name, num_days, water_date, note } = req.body
-    const newPlant = { id, name, num_days, water_date}
+    const { name, num_days, water_date, note } = req.body
+    const newPlant = { name, num_days, water_date}
 
     for (const [key, value] of Object.entries(newPlant)) 
        if (value == null) 
@@ -34,7 +34,6 @@ plantsRouter
             error: { message: `Missing '${key}' in request body` }
           })
     newPlant.note = note;
-    newPlant.id = id;
 
     PlantsService.insertPlant(
       req.app.get('db'),
