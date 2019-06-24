@@ -49,11 +49,11 @@ plantsRouter
   })
 
 plantsRouter
-  .route('/:id')
+  .route('/:plant_id')
   .all((req, res, next) => {
        PlantsService.getById(
         req.app.get('db'),
-        req.params.id
+        req.params.plant_id
      )
       .then(plant => {
         if (!plant) {
@@ -72,7 +72,7 @@ plantsRouter
   .delete((req, res, next) => {
     PlantsService.deletePlant(
         req.app.get('db'),
-        req.params.id
+        req.params.plant_id
       )
         .then(() => {
            res.status(204).end()

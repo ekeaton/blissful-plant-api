@@ -17,6 +17,7 @@ const morganOption = (NODE_ENV === 'production')
 app.use(morgan(morganOption))
 app.use(cors())
 app.use(helmet())
+
 app.use(express.static(__dirname + "/client/build"));
 
 
