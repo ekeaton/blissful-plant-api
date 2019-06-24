@@ -80,8 +80,8 @@ plantsRouter
         .catch(next)
    })
    .patch(jsonParser, (req, res, next) => {
-    const { id, name, num_days, note, water_date } = req.body
-    const plantToUpdate = { id, note, water_date, name, num_days }
+    const { name, num_days, note, water_date } = req.body
+    const plantToUpdate = { note, water_date, name, num_days }
 
     const numberOfValues = Object.values(plantToUpdate).filter(Boolean).length
     if (numberOfValues === 0)
