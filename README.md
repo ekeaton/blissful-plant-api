@@ -2,7 +2,7 @@
 
 Description
 -----------
- Having an indoor garden with beautiul lush plants can seem difficult. But the key to plants success is water. 
+ Having an indoor garden with beautiful lush plants can seem difficult. But the key to plants success is water. 
  Blissful Plant was created to take the guess work out of remembering when your plants need water. 
 
 Live Demo
